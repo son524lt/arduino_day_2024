@@ -1,16 +1,18 @@
 #include <motor.hpp>
 
 esp32_motor::esp32_motor(int8_t forward_pin, int8_t backward_pin, int8_t channel_number_forward, int8_t channel_number_backward, int frequency, int resolution) {
-    forward = channel_number_forward;
-    backward = channel_number_backward;
+    forward = forward_pin;
+    backward = backward_pin;
+    forward_channel = channel_number_forward;
+    backward_channel = channel_number_backward;
     maxPWM = (uint)pow(2,resolution)-1;
 }
 
 void esp32_motor::Init() {
-    ledcSetup(channel_number_backward, frequency, resolution);
-    ledcSetup(channel_number_forward, frequency, resolution);
-    ledcAttachPin(forward_pin, channel_number_forward);
-    ledcAttachPin(backward_pin, channel_number_backward);
+    ledcSetup(backward_channel, frequency, resolution);
+    ledcSetup(forward_channel, frequency, resolution);
+    ledcAttachPin(forward, forward_channel);
+    ledcAttachPin(backward, backward_channel);
 }
 
 void esp32_motor::Run(int PWM) {
