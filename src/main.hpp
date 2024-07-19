@@ -1,9 +1,10 @@
 #include <Arduino.h>
-#include <motor.hpp>
-#include <linePID.hpp>
-#include <Wire.h>
-#include <SPI.h>
-#include <Adafruit_TCS34725.h>
+// #include <motor.hpp>
+// #include <linePID.hpp>
+// #include <Wire.h>
+// #include <TCS34725.h>
+// #include <SPI.h>
+// #include <Adafruit_TCS34725.h>
 
 #define PWM_PIN_L_A 2
 #define PWM_PIN_L_B 10
@@ -18,21 +19,21 @@
 #define SENSOR_3_PIN 1
 #define SENSOR_4_PIN 0
 
-struct rData {
-    uint16_t r = 0;
-    uint16_t g = 0;
-    uint16_t b = 0;
-    uint16_t c = 0;
-};
+// struct rData {
+//     uint16_t r = 0;
+//     uint16_t g = 0;
+//     uint16_t b = 0;
+//     uint16_t c = 0;
+// };
 
-struct colorData {
-    float r = 0;
-    float g = 0;
-    float b = 0;
-};
+// struct colorData {
+//     float r = 0;
+//     float g = 0;
+//     float b = 0;
+// };
 
-void start() {
-    digitalWrite(W_LED, HIGH);
-    digitalWrite(IR_LED, HIGH);
-    delay(1000);
-}
+// void start() {
+//     digitalWrite(W_LED, HIGH);
+//     digitalWrite(IR_LED, HIGH);
+//     delay(1000);
+// }
